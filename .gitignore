@@ -1,0 +1,12 @@
+### Javascript ###
+src/main/resources/static/node_modules/
+src/main/resources/static/build/
+
+### Gradle ###
+.gradle
+build/
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+### IntelliJ ###
+.idea
