@@ -6,13 +6,15 @@ buildscript {
 		mavenCentral()
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("org.flywaydb:flyway-gradle-plugin:4.0")
 	}
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'spring-boot' 
+apply plugin: 'spring-boot'
+apply plugin: 'org.flywaydb.flyway'
 
 jar {
 	baseName = 'osusume-spring-react'
@@ -25,6 +27,12 @@ repositories {
 	mavenCentral()
 }
 
+flyway {
+	//dev: "jdbc:postgresql://localhost:5432/osusume-dev"
+	//test: "jdbc:postgresql://localhost:5432/osusume-test"
+	url = System.getenv("DATABASE_URL")
+	sqlMigrationPrefix = "" // remove default "V" prefix
+}
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
@@ -36,7 +44,6 @@ dependencies {
 	testCompile("com.jayway.jsonpath:json-path:2.0.0")
 	testCompile("com.jayway.jsonpath:json-path-assert:2.0.0")
 }
-
 
 eclipse {
 	classpath {

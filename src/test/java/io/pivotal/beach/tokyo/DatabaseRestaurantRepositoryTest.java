@@ -24,12 +24,12 @@ public class DatabaseRestaurantRepositoryTest {
         DatabaseRestaurantRepository repo = new DatabaseRestaurantRepository(jdbcTemplate);
 
         try {
-            jdbcTemplate.update("INSERT INTO restaurants (name) VALUES ('Afuri')");
+            jdbcTemplate.update("INSERT INTO restaurant (name) VALUES ('Afuri')");
             List<Restaurant> restaurants = repo.selectAll();
             assertThat(restaurants.size(), equalTo(1));
             assertThat(restaurants.get(0).getName(), equalTo("Afuri"));
         } finally {
-            jdbcTemplate.update("DELETE FROM restaurants");
+            jdbcTemplate.update("DELETE FROM restaurant");
         }
     }
 }

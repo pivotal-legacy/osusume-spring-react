@@ -16,7 +16,7 @@ public class DatabaseRestaurantRepository implements RestaurantRepository {
     }
 
     public List<Restaurant> selectAll() {
-        return jdbcTemplate.query("select * from restaurants", (rs, rowNum) -> {
+        return jdbcTemplate.query("select * from restaurant", (rs, rowNum) -> {
             return new Restaurant(rs.getInt("id"), rs.getString("name"));
         });
     }
