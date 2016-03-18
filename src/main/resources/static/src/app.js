@@ -1,17 +1,10 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, browserHistory } from 'react-router'
-
-class App extends React.Component {
-    render() {
-        return (
-            <div></div>
-        );
-    }
-}
+import RestaurantList from './RestaurantList'
 
 render((
     <Router history={browserHistory}>
-        <Route path="/" component={App} />
+        <Route path="/" component={RestaurantList} />
     </Router>
 ), document.getElementById('react'));

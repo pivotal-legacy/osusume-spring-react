@@ -1,6 +1,8 @@
 ### Javascript ###
 src/main/resources/static/node_modules/
 src/main/resources/static/build/
+src/main/resources/static/spec.js
+src/main/resources/static/spec.js.map
 
 ### Gradle ###
 .gradle

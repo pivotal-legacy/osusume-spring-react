@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-    entry: './app.js',
+    entry: './src/app.js',
     devtool: 'sourcemaps',
     cache: true,
     debug: true,
