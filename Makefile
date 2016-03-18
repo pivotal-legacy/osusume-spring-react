@@ -1,4 +1,4 @@
-all: build run
+all: jasmine-ci build run
 
 build:
 	pushd src/main/resources/static/ && webpack && popd
@@ -14,6 +14,10 @@ run:
 clean:
 	pushd src/main/resources/static/ && rm -rf build/ && popd
 	./gradlew clean
+
+jasmine-ci:
+	pushd src/main/resources/static/ && webpack --config webpack.jasmine.config.js && phantomjs spec/support/jasmine-runner.js http://localhost:63342/osusume-spring-react/static/spec/spec.html && popd
+
 
 .PHONY: build
 
