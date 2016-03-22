@@ -4,6 +4,10 @@ build:
 	pushd src/main/resources/static/ && webpack && popd
 	./gradlew build
 
+javascript:
+	pushd src/main/resources/static/ && webpack && popd
+	cp src/main/resources/static/build/osusume.js* build/resources/main/static/build/
+
 migrate:
 	DATABASE_URL=jdbc:postgresql://localhost:5432/osusume-dev ./gradlew flywayMigrate
 	DATABASE_URL=jdbc:postgresql://localhost:5432/osusume-test ./gradlew flywayMigrate
